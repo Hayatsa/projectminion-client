@@ -1,4 +1,5 @@
 import React from "react"
+import 'bootstrap/dist/css/bootstrap.min.css'
 import { Route, Redirect } from "react-router-dom"
 import { ApplicationViews } from "./ApplicationViews"
 import { NavBar } from "./nav/NavBar"

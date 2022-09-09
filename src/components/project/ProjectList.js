@@ -12,7 +12,6 @@ export const ProjectList = (props) => {
 
     return (
         <article className="projects">
-             <button className="btn btn-2 btn-sep icon-create" onClick={() => {history.push({ pathname: "/projects/new" })}}> + </button>
             {
                 projects.map(project => {
                     return <section key={`project--${project.id}`} className="project">

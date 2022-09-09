@@ -20,8 +20,7 @@ export const Register = () => {
                 "username": username.current.value,
                 "first_name": firstName.current.value,
                 "last_name": lastName.current.value,
-                "password": password.current.value,
-                "email": email.current.value
+                "password": password.current.value
             }
 
             return fetch("http://127.0.0.1:8000/register", {
@@ -61,10 +60,6 @@ export const Register = () => {
                 <fieldset>
                     <label htmlFor="lastName"> Last Name </label>
                     <input ref={lastName} type="text" name="lastName" className="form-control" placeholder="Last name" required />
-                </fieldset>
-                <fieldset>
-                    <label htmlFor="inputEmail">Email</label>
-                    <input ref={email} type="text" name="email" className="form-control" placeholder="Email" required />
                 </fieldset>
                 <fieldset>
                     <label htmlFor="inputUsername">Username</label>

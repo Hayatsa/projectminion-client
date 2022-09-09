@@ -7,20 +7,20 @@ export const NavBar = () => {
     return (
         <ul className="navbar">
             <li className="navbar__item">
-                Navigation link
+                Today
             </li>
             <li className="navbar__item">
-                Navigation link
+                Projects
             </li>
-            <li className="navbar__item">
-                Navigation link
-            </li>
+
+
             {
                 (localStorage.getItem("projectminion_token") !== null) ?
                     <li className="nav-item">
-                        <button className="nav-link fakeLink"
+                        <button className="btn"
                             onClick={() => {
-                                localStorage.removeItem("lu_token")
+                                localStorage.removeItem("projectminion_token")
+                                localStorage.removeItem("userId")
                                 history.push({ pathname: "/" })
                             }}
                         >Logout</button>
@@ -33,6 +33,7 @@ export const NavBar = () => {
                             <Link className="nav-link" to="/register">Register</Link>
                         </li>
                     </>
-            }        </ul>
+            }        
+        </ul>
     )
 }
