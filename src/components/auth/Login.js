@@ -45,7 +45,7 @@ export const Login = () => {
             <section>
                 <form className="form--login" onSubmit={handleLogin}>
                     <h1>ProjectMinion</h1>
-                    <h2>Please sign in</h2>
+                    <h5>Please sign in</h5>
                     <fieldset>
                         <label htmlFor="inputUsername">Username</label>
                         <input ref={username} type="username" id="username" className="form-control" placeholder="Username" required autoFocus />
