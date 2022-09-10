@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom'
 import { getProjects } from "./ProjectManager.js"
 
 export const ProjectList = (props) => {
-    const history = useHistory()
+    
     const [ projects, setProjects ] = useState([])
 
     useEffect(() => {
