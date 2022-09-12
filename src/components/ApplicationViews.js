@@ -4,21 +4,23 @@ import { ProjectList } from "./project/ProjectList"
 import { TaskList } from "./task/TaskList"
 import { ProjectForm } from "./project/ProjectForm"
 import { TaskForm } from "./task/TaskForm"
+import { ProjectCard } from "./project/ProjectCard"
 
 
 
 export const ApplicationViews = () => {
     return <>
-        <Route exact path="/">
-            <ProjectList />
-        </Route>
-        <Route path="/tasks">
+       
+        <Route exact path="/tasks">
             <TaskList />
         </Route>
-        <Route path="/projects/new">
+        <Route exact path="/projects/new">
             <ProjectForm />
         </Route>
-        <Route path="/tasks/new">
+        <Route exact path="/projects/:projectId(\d+)">
+            <ProjectCard /> 
+        </Route>  
+        <Route exact path="/tasks/new">
             <TaskForm />
         </Route>
     </>

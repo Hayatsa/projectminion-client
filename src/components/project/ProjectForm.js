@@ -64,8 +64,8 @@ export const ProjectForm = () => {
             </fieldset>
             
             <button type="submit"
-                onClick={evt => {
-                    evt.preventDefault()
+                onClick={p => {
+                    p.preventDefault()
 
                     const project = {
                         title: currentProject.title,
@@ -74,7 +74,7 @@ export const ProjectForm = () => {
                     }
 
                     createProject(project)
-                        .then(() => history.push("/projects"))
+                        .then(() => history.push("/"))
                 }}
                 className="btn btn-primary">Create</button>
         </form>

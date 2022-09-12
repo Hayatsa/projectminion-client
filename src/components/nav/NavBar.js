@@ -12,10 +12,7 @@ export const NavBar = () => {
       <Navbar bg="primary" variant="dark">
         <Container fluid>
           <Navbar.Brand href="/">ProjectMinion</Navbar.Brand>
-          <Nav className="me-auto">
-            <Nav.Link href="#today">Today</Nav.Link>
-            <Nav.Link href="/">Projects</Nav.Link>
-          </Nav>
+         
           <Nav>
             <Container>
               {
@@ -45,3 +42,8 @@ export const NavBar = () => {
      </>
     )
 }
+
+{/* <Nav className="me-auto">
+<Nav.Link href="/">Today</Nav.Link>
+<Nav.Link href="/projects">Projects</Nav.Link>
+</Nav> */}
