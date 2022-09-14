@@ -5,12 +5,13 @@ import { TaskList } from "./task/TaskList"
 import { ProjectForm } from "./project/ProjectForm"
 import { TaskForm } from "./task/TaskForm"
 import { ProjectCard } from "./project/ProjectCard"
+import { SideBar } from "./nav/SideBar"
 
 
 
 export const ApplicationViews = () => {
     return <>
-        
+       
         <Route exact path="/tasks">
             <TaskList />
         </Route>

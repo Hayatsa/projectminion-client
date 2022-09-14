@@ -1,10 +1,7 @@
-import Col from 'react-bootstrap/Col';
-import ListGroup from 'react-bootstrap/ListGroup';
-import Row from 'react-bootstrap/Row';
-import Tab from 'react-bootstrap/Tab';
+import { Col, ListGroup, Row, Tab, Nav, Card } from 'react-bootstrap';
 import React, { useEffect, useState } from "react"
 import { Link, useHistory } from 'react-router-dom';
-import { getProjectById, getProjects } from '../project/ProjectManager';
+import { getProjects } from '../project/ProjectManager';
 
     
 
@@ -17,10 +14,8 @@ export const SideBar = () => {
     }, [])
 
     const projectsList = projects.map(project => 
-        <ListGroup.Item key={`project--${project.id}`} className="project" varient="primary">
-            <div className="project__title">
-              <Link to={`projects/${project.id}`}>{project.title}</Link>    
-            </div> 
+        <ListGroup.Item key={`project--${project.id}`} className="project">
+              <Link to={`projects/${project.id}`}>{project.title}</Link>   
         </ListGroup.Item>
     )
 

@@ -1,3 +1,5 @@
+const remoteURL = "http://localhost:800"
+
 export const getTasks = () => {
     return fetch("http://localhost:8000/tasks", {
         headers:{
@@ -8,7 +10,7 @@ export const getTasks = () => {
 }
 
 export const createTask = (task) => {
-    return fetch("http://localhost:8000/tasks", {
+    return fetch(`${remoteURL}/tasks`, {
         method: "POST",
         headers:{
             "Authorization": `Token ${localStorage.getItem("lu_token")}`,
@@ -16,4 +18,6 @@ export const createTask = (task) => {
         },
         body: JSON.stringify(task)
     })
+        .then(res => res.json())
 }
+
