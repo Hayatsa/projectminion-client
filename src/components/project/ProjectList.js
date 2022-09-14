@@ -14,12 +14,6 @@ export const ProjectList = (props) => {
 
     return (
         <article className="projects">
-            <button className="btn" id="newProjectBtn"
-                onClick={() => {
-                    history.push({ pathname: "/projects/new" })
-                }}
-                >New Project
-            </button>
             {projects.map(project => 
                 
                 <ProjectCard
@@ -41,3 +35,10 @@ export const ProjectList = (props) => {
 //         </section>
 //     })
 // }
+
+{/* <button className="btn" id="newProjectBtn"
+                onClick={() => {
+                    history.push({ pathname: "/projects/new" })
+                }}
+                >New Project
+            </button> */}

@@ -28,16 +28,12 @@ export const ProjectCard = () => {
         <Card>
             <Card.Header>
                 Date: {project.date}
-                <Nav variant="outline-warning">
-                    <Nav.Item>
-                        <Nav.Link href="#">Edit</Nav.Link>
-                    </Nav.Item>
-                </Nav> 
             </Card.Header>
             <Card.Body>
                 <Card.Title>{project.title}</Card.Title>
                 <Card.Text>{project.description}</Card.Text>
-                <Button variant="success" href="#"> Add Task </Button>
+                <Button variant="success" href="/tasks/new"> Add Task </Button>
+                <Button variant="warning" href=""> Edit Project </Button>
             </Card.Body>
         </Card>
       );

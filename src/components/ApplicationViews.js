@@ -10,7 +10,7 @@ import { ProjectCard } from "./project/ProjectCard"
 
 export const ApplicationViews = () => {
     return <>
-       
+        
         <Route exact path="/tasks">
             <TaskList />
         </Route>
