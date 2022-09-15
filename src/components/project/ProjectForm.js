@@ -74,7 +74,7 @@ export const ProjectForm = () => {
                     }
 
                     createProject(project)
-                        .then(() => history.push("/projects"))
+                        .then(() => history.push("/"))
                 }}
                 className="btn btn-primary">Create</button>
         </form>

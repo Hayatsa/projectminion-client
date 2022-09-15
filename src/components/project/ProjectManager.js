@@ -30,3 +30,25 @@ export const getProjectById = (projectId) => {
     })
         .then(res => res.json())
 }
+
+export const updateProject = (project, id) => {
+    console.log('updatedProject', project)
+    return fetch(`${remoteURL}/projects/${id}`, {
+        method: "PUT",
+        headers: {
+            "Authorization": `Token ${localStorage.getItem("projectminion_token")}`,
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(project)
+    })
+}
+
+export const deleteProject = (id) => {
+    return fetch(`${remoteURL}/projects/${id}`, { 
+        method: "DELETE",
+        headers:{
+            "Authorization": `Token ${localStorage.getItem("projectminion_token")}`
+        },
+        body: JSON.stringify(id)
+    })
+}

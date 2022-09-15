@@ -72,8 +72,8 @@ export const TaskForm = () => {
             </fieldset>
            
             <button type="submit"
-                onClick={evt => {
-                    evt.preventDefault()
+                onClick={t => {
+                    t.preventDefault()
 
                     const task = {
                         project: parseInt(currentTask.projectId),
@@ -83,7 +83,7 @@ export const TaskForm = () => {
                     }
 
                     createTask(task)
-                        .then(() => history.push("/tasks"))
+                        .then(() => history.push("/"))
                 }}
                 className="btn btn-primary">Add</button>
         </form>
