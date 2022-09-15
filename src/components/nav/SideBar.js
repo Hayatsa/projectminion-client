@@ -1,10 +1,7 @@
-import Col from 'react-bootstrap/Col';
-import ListGroup from 'react-bootstrap/ListGroup';
-import Row from 'react-bootstrap/Row';
-import Tab from 'react-bootstrap/Tab';
+import { ListGroup, Card } from 'react-bootstrap';
 import React, { useEffect, useState } from "react"
-import { Link, useHistory } from 'react-router-dom';
-import { getProjectById, getProjects } from '../project/ProjectManager';
+import { useHistory } from 'react-router-dom';
+import { getProjects } from '../project/ProjectManager';
 
     
 
@@ -17,28 +14,22 @@ export const SideBar = () => {
     }, [])
 
     const projectsList = projects.map(project => 
-        <ListGroup.Item key={`project--${project.id}`} className="project" varient="primary">
-            <div className="project__title">
-              <Link to={`projects/${project.id}`}>{project.title}</Link>    
-            </div> 
+        <ListGroup.Item key={`project--${project.id}`} className="flush" action onClick={() => { history.push({pathname: `projects/${project.id}`})}}>
+              {project.title}
         </ListGroup.Item>
     )
 
 
     return (
-        <Tab.Container id="project-title-list">
-        <Row>
-          <Col sm={2}>
+        <Card>
             <ListGroup>
-                <ListGroup.Item> Today </ListGroup.Item>
+                <ListGroup.Item action onClick={() => { history.push({ pathname: "/today" }) }}> Today </ListGroup.Item>
                 <ListGroup.Item action onClick={() => { history.push({ pathname: "/projects/new" }) }}> Projects + </ListGroup.Item>
-                <ListGroup.Item>
+                <ListGroup.Item className="text-center">
                   {projectsList}
                 </ListGroup.Item>
             </ListGroup>
-          </Col>
-        </Row>
-      </Tab.Container>
+        </Card>
       );
     }
 
