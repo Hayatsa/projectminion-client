@@ -24,20 +24,14 @@ export const UpdateTaskForm = () => {
         title: "",
         date: "",
         note: "",
-        projectId: 0 
+        project: 0,
     })
 
     const loadTask = () => {
         if (taskId) {
             getTaskById(taskId)
                 .then(data => {
-                    setCurrentTask({
-                        id: taskId,
-                        title: data.title,
-                        description: data.description,
-                        date: data.date,
-                        projectId: data.project.id
-                    })
+                    setCurrentTask(data)
             })
         }
         
@@ -63,8 +57,7 @@ export const UpdateTaskForm = () => {
                     <label htmlFor="project">Project: </label>
                     <select 
                         name="projectId"
-                        id="project"
-                        required
+                        id="project_id"
                         className="form-control"
                         value={currentTask.projectId}
                         onChange={handleFieldChange}>
@@ -101,7 +94,6 @@ export const UpdateTaskForm = () => {
                         type="text" 
                         name="note"
                         id="note" 
-                        required 
                         className="form-control"
                         value={currentTask.note}
                         onChange={handleFieldChange}
@@ -130,9 +122,9 @@ export const UpdateTaskForm = () => {
 
                     const editedTask = {
                         id: taskId,
-                        project: parseInt(currentTask.projectId),
+                        project: parseInt(currentTask.project),
                         title: currentTask.title,
-                        description: currentTask.description,
+                        note: currentTask.note,
                         date: currentTask.date
                     }
                     

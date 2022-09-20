@@ -22,17 +22,20 @@ export const ProjectCard = () => {
 
     useEffect(() => {
         getProjectById(projectId).then(data => setProject(data))
-    }, [])
+    }, [projectId])
 
     const taskList = project.tasks?.map(task =>
-        <CardGroup >
+        <CardGroup>
             <Card border="info">
                 <Card.Body>
                     <Card.Subtitle>{task.title}</Card.Subtitle>
                     <Card.Text className="mb-2 text-muted" style={{fontSize:"12px"}}>{task.date}</Card.Text>
                     <Card.Text style={{fontSize:"14px"}}>Note: {task.note}</Card.Text>
                     <Card.Text className="text-center">
-                        <Link to={`projects/${project.id}`}>
+                        <Link to={`/tasks/${task.id}/update`}>
+                            <Button variant="outline-warning" size="sm"> Edit </Button>
+                        </Link>
+                        <Link to={`/projects/${project.id}`}>
                             <Button variant="outline-danger" size="sm" onClick={() => {deleteTask(task.id)}}>x</Button>
                         </Link>
                     </Card.Text>
@@ -57,7 +60,7 @@ export const ProjectCard = () => {
                     </ListGroup>
                 </Card.Body>
                 <Card.Footer className="text-center">
-                    <Link to={`projects/${project.id}/update`}><Button variant="warning" size="sm"> Edit Project </Button></Link>
+                    <Link to={`/projects/${project.id}/update`}><Button variant="warning" size="sm"> Edit Project </Button></Link>
                 </Card.Footer>
             </Card.Body>
         </Card>

@@ -20,11 +20,14 @@ export const ApplicationViews = () => {
         <Route exact path="/projects/:projectId(\d+)">
             <ProjectCard /> 
         </Route> 
-        <Route exact path="/projects/projects/:projectId/update">
+        <Route exact path="/projects/:projectId(\d+)/update">
                 <UpdateProjectForm />
         </Route>
         <Route exact path="/tasks/new">
             <TaskForm />
+        </Route>
+        <Route exact path="/tasks/:taskId(\d+)/update">
+                <UpdateTaskForm />
         </Route>
     </>
 }

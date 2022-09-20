@@ -1,21 +1,21 @@
 import { ListGroup, Card } from 'react-bootstrap';
 import React, { useEffect, useState } from "react"
-import { useHistory } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import { getProjects } from '../project/ProjectManager';
 
-    
 
 export const SideBar = () => {
     const [ projects, setProjects ] = useState([])
     const history = useHistory()
-
+    
     useEffect(() => {
         getProjects().then(data => setProjects(data))
     }, [])
 
+
     const projectsList = projects.map(project => 
-        <ListGroup.Item key={`project--${project.id}`} className="flush" action onClick={() => { history.push({pathname: `projects/${project.id}`})}}>
-              {project.title}
+        <ListGroup.Item key={project.id} className="flush" action onClick={() => { history.push({pathname: `/projects/${project.id}`}) }}>
+            {project.title}
         </ListGroup.Item>
     )
 

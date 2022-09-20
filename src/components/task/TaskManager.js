@@ -53,13 +53,5 @@ export const deleteTask = (id) => {
     })
 }
 
-export const getTasksByDate = (taskDate) => {
-    return fetch(`${remoteURL}/tasks/${taskDate}`, {
-        headers:{
-            "Authorization": `Token ${localStorage.getItem("projectminion_token")}`,
-            "Content-Type": "application/json"
-        },
-    })
-        .then(res => res.json())
-}
+
 

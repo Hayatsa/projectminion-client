@@ -1,20 +1,19 @@
 import React, { useEffect, useState } from "react"
 import { Card, Button, CardGroup, ListGroup } from "react-bootstrap"
 import { Link, useParams } from "react-router-dom"
-import { useHistory } from 'react-router-dom'
-import { getTasksByDate, getTasks, deleteTask } from "../task/TaskManager"
+import { getTasks, deleteTask } from "../task/TaskManager"
 
 export const Today = () => {
     const [ tasks, setTasks ] = useState([])
-    const {taskDate} = useParams();
 
     useEffect(() => {
         getTasks().then(data => setTasks(data))
     }, [])
 
-    const todayTasks =tasks.map(task =>
+
+    const todayTasks = tasks.map(task =>
         <CardGroup >
-            <Card >
+            <Card border="info">
                 <Card.Body>
                     <Card.Subtitle>{task.title}</Card.Subtitle>
                     <Card.Text className="mb-2 text-muted" style={{fontSize:"12px"}}>{task.date}</Card.Text>
@@ -22,6 +21,9 @@ export const Today = () => {
                     <Card.Text className="text-center">
                         <Link to={`tasks/${task.id}`}>
                             <Button variant="outline-danger" size="sm" onClick={() => {deleteTask(task.id)}}>x</Button>
+                        </Link>
+                        <Link to={`/tasks/${task.id}/update`}>
+                            <Button variant="outline-warning" size="sm"> Edit </Button>
                         </Link>
                     </Card.Text>
                 </Card.Body>
